@@ -1,0 +1,19 @@
+
+自己写struts
+使用到的技术：
+servlet
+监听器(监听配置文件的更改,读取配置文件)
+xml解析(解析xml配置文件、dom4j解析方式需要dom4j-1.6.1.jar和jaxen-1.1.6.jar包)
+反射(通过路径反射出类,并操作类的属性和方法)
+接口
+抽象类
+
+struts主要核心：
+struts的主要核心就是解析xml配置文件 + 反射
+struts主要使用servlet的HttpServletRequest进行接收请求,使用HttpServletResponse响应请求或者通过转发器跳转到指定页面
+
+核心流程：
+1、使用监听器ServletContextListener监听ServletContext对象,监听配置文件的更改(监听到ServletContext域对象中的属性值的变化),读取配置文件,解析配置文件,将解析的配置文件的属性和值存放在Map中(通过key-value的方式存储),将map存放在内存中
+2、请求servlet,通过request.getRequestURI()获取到请求头信息,通过this.getServletContext().getAttribute("struts2")获取内存中存放的配置文件信息,根据获取到的配置信息通过请求头(key)找到对应的配置信息(value),得到配置信息中类的路径,通过反射操作类的属性和方法,
+3、通过转发器跳转到指定的页面
+

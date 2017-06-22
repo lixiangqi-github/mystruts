@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<struts>
+	<forms>
+		<bean name="fruit" type="com.taozi.mvcstruts.froms.EatfruitForm"/>
+		<bean name="vegetable" type="com.taozi.mvcstruts.froms.EatvegetableForm"/>
+	</forms>
+    <action-mappering>
+		<action name="eat" class="com.taozi.mvcstruts.action.EatAction" method="/eat" >
+		    <result name="success">/view/page/successall.jsp</result>
+            <result name="fail">/view/page/failall.jsp</result>
+		</action>
+		<action name="fruit" class="com.taozi.mvcstruts.action.EatfruitAction" method="/eatFruit" >
+		    <result name="success">/view/page/eat/eatfruit.jsp</result>
+            <result name="fail">/view/page/fail.jsp</result>
+		</action>
+		<action name="vegetable" class="com.taozi.mvcstruts.action.EatvegetableAction" method="/eatVegetable" >
+		    <result name="success">/view/page/eat/eatvegetable.jsp</result>
+            <result name="fail">/view/page/fail.jsp</result>
+		</action>
+    </action-mappering>
+</struts>
